@@ -46,10 +46,11 @@ class Solution {
     public void rotate(int[] arr) {
         // code here
         int n=arr.length;
-        int key=arr[n-1];
+        int a=arr[n-1];
         for(int i=n-2;i>=0;i--){
             arr[i+1]=arr[i];
         }
-        arr[0]=key;
+        arr[0]=a;
+        
     }
 }
