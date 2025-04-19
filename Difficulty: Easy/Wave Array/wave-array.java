@@ -56,13 +56,10 @@ class Solution {
     public static void convertToWave(int[] arr) {
         // code here
         int n=arr.length;
-        for(int i=0;i<n-1;i=i+2){
-            swap(arr,i,i+1);
+        for(int i=0;i<n-1;i+=2){
+            int temp=arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=temp;
         }
-    }
-    static void swap(int arr[],int i,int j){
-        int temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
     }
 }
