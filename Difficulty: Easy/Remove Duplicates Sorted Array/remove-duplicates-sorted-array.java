@@ -26,22 +26,20 @@ public class Main {
 // User function Template for Java
 
 class Solution {
-    
+    // Function to remove duplicates from the given array
     public int removeDuplicates(int[] arr) {
         // Code Here
-       int n=arr.length;
-        int j = 0;  // Pointer for the temp array
-        
-        for (int i = 0; i < n - 1; i++) {
-            if (arr[i] != arr[i + 1]) {  
-                arr[j] = arr[i];  
-                j++;  
+          if (arr.length == 0) return 0;
+
+        int j = 0; // index of last unique element
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[j]) {
+                j++;
+                arr[j] = arr[i];
             }
         }
-        
-      
-        arr[j] = arr[n - 1];
-        j++;  
-        return j;
+
+        return j + 1;
     }
 }
