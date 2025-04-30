@@ -38,17 +38,25 @@ public class Main {
 class Solution {
     boolean twoSum(int arr[], int target) {
         // code here
-        HashSet<Integer>map=new HashSet<>();
-        int n=arr.length;
-        for(int num:arr){
-          int ans=target-num; 
-          if(map.contains(ans)){
-             return true;
-          }
-          else{
-              map.add(num);
-          }
-        }
-        return false;
+       int n=arr.length;
+//       for(int i=0;i<n;i++) {
+// 	for(int j=i+1;j<n;j++) {
+// 		if(arr[i]+arr[j]==target) {
+// 			return true;
+// 		}
+// 	}
+// 	}
+// 	return false;
+HashMap<Integer,Integer>map=new HashMap<>();
+for(int i=0;i<n;i++){
+    int partner=target-arr[i];
+    if(map.containsKey(partner)){
+        return true;
+    }
+    else{
+        map.put(arr[i],1);
+    }
+}
+return false;
     }
 }
