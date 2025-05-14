@@ -29,17 +29,14 @@ class Solution {
     // Function to remove duplicates from the given array
     public int removeDuplicates(int[] arr) {
         // Code Here
-          if (arr.length == 0) return 0;
-
-        int j = 0; // index of last unique element
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] != arr[j]) {
-                j++;
-                arr[j] = arr[i];
+        int i=0;
+        int n=arr.length;
+        for(int j=1;j<n;j++){
+            if(arr[i]!=arr[j]){
+                i++;
+                arr[i]=arr[j];
             }
         }
-
-        return j + 1;
+        return i+1;
     }
 }
