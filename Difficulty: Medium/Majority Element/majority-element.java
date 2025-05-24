@@ -1,52 +1,22 @@
-//{ Driver Code Starts
-// Initial Template for Java
-
-import java.io.*;
-import java.lang.*;
-import java.util.*;
-
-class Geeks {
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
-        for (int g = 0; g < t; g++) {
-            String[] str = (br.readLine()).trim().split(" ");
-            int arr[] = new int[str.length];
-            for (int i = 0; i < str.length; i++) arr[i] = Integer.parseInt(str[i]);
-            System.out.println(new Solution().majorityElement(arr));
-        }
-    }
-}
-// } Driver Code Ends
-
-
 // User function Template for Java
 
 class Solution {
     static int majorityElement(int arr[]) {
-        // your code here
-        int count = 0;
-        int candidate = -1;
-        
-        
-        for (int i = 0; i < arr.length; i++) {
-            if (count == 0) {
-                candidate = arr[i];
-            }
-            count += (arr[i] == candidate) ? 1 : -1;
-        }
-        
-        
-        count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == candidate) {
-                count++;
+        // code here
+       if (arr == null || arr.length == 0) return -1; 
+
+        int n = arr.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+
+            if (map.get(num) > n / 2) {
+                return num;
             }
         }
-        
-        if (count > arr.length / 2) {
-            return candidate;
-        }
-        return -1;
+
+        return -1; 
     }
+   
 }
